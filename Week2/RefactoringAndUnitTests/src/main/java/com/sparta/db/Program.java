@@ -6,7 +6,7 @@ public class Program {
         String greeting = getGreeting(timeOfDay);
     }
 
-    private static String getGreeting(int timeOfDay) {
+    public static String getGreeting(int timeOfDay) {
         if (timeOfDay >= 5 && timeOfDay <= 12) {
             return "Good morning!";
         } else if (timeOfDay >= 12 && timeOfDay <= 18) {
