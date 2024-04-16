@@ -1,4 +1,4 @@
-package com.sparta.db;
+package com.sparta.db.refactoring_and_testing;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
