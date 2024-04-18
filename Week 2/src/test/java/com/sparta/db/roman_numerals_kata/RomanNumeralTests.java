@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 public class RomanNumeralTests {
 
     @Test
-    @DisplayName("Given an input of 1 getNumerable() should return a value of \"i\"")
-    void givenAnInputOf1_getNumerable_returns_i(){
+    @DisplayName("Given an input of 1 getNumerable() should return a value of \"I\"")
+    void givenAnInputOf1_getNumerable_returns_I(){
         // Arrange
         int input = 1;
         String result;
@@ -17,12 +17,12 @@ public class RomanNumeralTests {
         result = RomanNumeral.getNumerable(input);
 
         // Assert
-        Assertions.assertEquals("i", result);
+        Assertions.assertEquals("I", result);
 
     }
 
-    @Test@DisplayName("Given an input of 5 getNumerable() should return a value of \"v\"")
-    void givenAnInputOf5_getNumerable_returns_v(){
+    @Test@DisplayName("Given an input of 5 getNumerable() should return a value of \"V\"")
+    void givenAnInputOf5_getNumerable_returns_V(){
         // Arrange
         int input = 5;
         String result;
@@ -31,12 +31,12 @@ public class RomanNumeralTests {
         result = RomanNumeral.getNumerable(input);
 
         // Assert
-        Assertions.assertEquals("v", result);
+        Assertions.assertEquals("V", result);
     }
 
     @Test
-    @DisplayName("Given an input of 2 getNumerable() returns a value of \"ii\"")
-    void givenAnInputOf2_getNumerable_returns_ii(){
+    @DisplayName("Given an input of 2 getNumerable() returns a value of \"II\"")
+    void givenAnInputOf2_getNumerable_returns_II(){
         // Arrange
         int input = 2;
         String result;
@@ -45,8 +45,23 @@ public class RomanNumeralTests {
         result = RomanNumeral.getNumerable(input);
 
         // Assert
-        Assertions.assertEquals("ii", result);
+        Assertions.assertEquals("II", result);
 
     }
 
+    @Test
+    @DisplayName("Given an input of 4 getNumerable() returns a value of \"IV\"")
+    void givenAnInputOf4_getNumerable_returns_IV(){
+        // Arrange
+        int input = 4;
+        String result;
+
+        // Act
+        result = RomanNumeral.getNumerable(input);
+
+        // Assert
+        Assertions.assertEquals("IV", result);
+    }
+
 }
+// Input Partitioning
