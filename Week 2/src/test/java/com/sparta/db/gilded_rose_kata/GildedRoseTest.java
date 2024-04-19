@@ -1,5 +1,6 @@
 package com.sparta.db.gilded_rose_kata;
 
+import com.sun.source.tree.AssertTree;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -196,16 +197,48 @@ public class GildedRoseTest {
         Assertions.assertEquals(0, result);
 
     }
-//
-//    @Test
-//    @DisplayName("Given an Item is 'Conjured', after updateQuality, quality decreases by 2")
-//    void givenAnItemIsConjuredAfterUpdateQualityQualityDecreasesBy2() {
-//        // Arrange
-//
-//        // Act
-//
-//        // Assert
-//
-//
-//    }
+
+    @Test
+    @DisplayName("Given an Item is 'Conjured', after updateQuality, quality decreases by 2")
+    void givenAnItemIsConjuredAfterUpdateQualityQualityDecreasesBy2() {
+        // Arrange
+        Item [] items = new Item[] { new Item("Conjured apple", 5, 40)};
+        GildedRose app = new GildedRose(items);
+        // Act
+        app.updateQuality();
+        int result = app.items[0].quality;
+        // Assert
+        Assertions.assertEquals(38, result);
+
+    }
+
+    @Test
+    @DisplayName("Given an Item is 'Conjured' and sellIn is 0, after updateQuality, quality decreases by 4")
+    void givenAnItemIsConjuredAndSellInIs0AfterUpdateQualityQualityDecreasesBy4() {
+        // Arrange
+        Item [] items = new Item[] { new Item("Conjured apple", 0, 38)};
+        GildedRose app = new GildedRose(items);
+        // Act
+        app.updateQuality();
+        int result = app.items[0].quality;
+        // Assert
+        Assertions.assertEquals(34, result);
+
+    }
+
+    @Test
+    @DisplayName("Given an Item is 'Conjured' and quality is 0, after updateQuality, quality stays 0 ")
+    void givenAnItemIsConjuredAndQualityIs0AfterUpdateQualityQualityStays0() {
+        // Arrange
+        Item [] items = new Item[] { new Item("Conjured apple", 0, 0)};
+        GildedRose app = new GildedRose(items);
+        // Act
+        app.updateQuality();
+        int result = app.items[0].quality;
+        // Assert
+        Assertions.assertEquals(0, result);
+
+    }
+
+
 }

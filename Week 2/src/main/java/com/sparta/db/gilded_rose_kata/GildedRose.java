@@ -51,9 +51,7 @@ class GildedRose {
     }
 
     private static boolean isValidQuality(Item item){
-        if(isLegendary(item)){
-            return true;
-        }
+
         return item.quality <= 50 && item.quality > 0;
 
 
@@ -91,8 +89,6 @@ class GildedRose {
 
 
 
-
-
     }
     public void updateQuality(){
         for(Item item : items){
@@ -101,7 +97,7 @@ class GildedRose {
 
             int qualityIncrease = 0;
 
-            if(isRegularItem(item)) {
+            if(isRegularItem(item) || isConjured(item)) {
                 qualityIncrease = -1;
             } else if(!isRegularItem(item)){
                 qualityIncrease = 1;
@@ -109,7 +105,6 @@ class GildedRose {
 
             handleQuality(item, qualityIncrease);
             handleSellIn(item);
-
         }
     }
 
