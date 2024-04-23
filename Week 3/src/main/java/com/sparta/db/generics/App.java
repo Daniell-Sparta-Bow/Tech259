@@ -12,6 +12,5 @@ public class App {
         System.out.printf("Object Rectangle Area: %d\n", (int) objectRectangle.getWidth() * (int) objectRectangle.getHeight());
         System.out.printf("Generic Rectangle Area: %d\n", genericRectangle.getWidth() * genericRectangle.getHeight());
 
-        System.out.println(genericRectangle.isSquare());
     }
 }
