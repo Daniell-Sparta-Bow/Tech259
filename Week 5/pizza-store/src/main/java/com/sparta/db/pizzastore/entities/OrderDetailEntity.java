@@ -30,4 +30,11 @@ public class OrderDetailEntity {
         this.quantity = quantity;
     }
 
+    @Override
+    public String toString() {
+        return "OrderDetailEntity{" +
+                "id=" + id +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

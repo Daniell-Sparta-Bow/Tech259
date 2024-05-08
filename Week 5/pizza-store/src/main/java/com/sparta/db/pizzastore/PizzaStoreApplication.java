@@ -1,6 +1,9 @@
 package com.sparta.db.pizzastore;
 
 import com.sparta.db.logging.LoggingUtil;
+import com.sparta.db.pizzastore.repositories.OrderEntityRepository;
+import com.sparta.db.pizzastore.repositories.PizzaSizeEntityRepository;
+import com.sparta.db.pizzastore.service.PizzaStoreService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,13 +20,18 @@ public class PizzaStoreApplication {
     }
 
     @Bean
-    public CommandLineRunner runner(){
+    public CommandLineRunner runner(OrderEntityRepository orderEntityRepository, PizzaSizeEntityRepository pizzaSizeEntityRepository, PizzaStoreService pizzaStoreService){
 
-        try {
-            LoggingUtil.setUp(LOGGER);
-        } catch (IOException e) {
-            LOGGER.warning(e.getMessage());
-        }
-        return args -> LOGGER.info("Hello World");
+        LoggingUtil.setUp(LOGGER);
+
+        return args -> {
+            LOGGER.info(orderEntityRepository.findAll().toString());  // Repositories have 2 return types: 1: List<OrderEntity>
+            LOGGER.info(orderEntityRepository.findById(1).toString());//                                   2: Optional<OrderEntity>
+
+            pizzaStoreService.getAllToppingsByCustomerName("John Doe");
+        };
     }
+
+    // v IoC -> Create an object from CommandLineRunner Interface -> in order to do that, I need v
+    // OrderEntityRepository object -> This is called Injecting (Injecting OrderEntityRepository object into CommandLineRunner
 }

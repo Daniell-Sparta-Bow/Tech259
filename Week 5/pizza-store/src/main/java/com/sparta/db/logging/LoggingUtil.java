@@ -12,7 +12,7 @@ public class LoggingUtil {
     private static final Level consoleLevel = Level.INFO;
     private static final Level fileLevel = Level.INFO;
 
-    public static void setUp(Logger logger) throws IOException{
+    public static void setUp(Logger logger){
         ConsoleHandler consoleHandler = getConsoleHandler();
         FileHandler fileHandler = getFileHandler();
         logger.addHandler(consoleHandler);
@@ -28,8 +28,14 @@ public class LoggingUtil {
         return consoleHandler;
     }
 
-    private static FileHandler getFileHandler() throws IOException{
-        FileHandler fileHandler = new FileHandler("src/main/resources/debug.log", false);
+    private static FileHandler getFileHandler(){
+
+        FileHandler fileHandler = null;
+        try {
+            fileHandler = new FileHandler("src/main/resources/debug.log", false);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
         fileHandler.setLevel(fileLevel);
         return fileHandler;
     }

@@ -56,4 +56,13 @@ public class OrderEntity {
         this.totalAmount = totalAmount;
     }
 
+    @Override
+    public String toString() {
+        return "OrderEntity{" +
+                "id=" + id +
+                ", customerName='" + customerName + '\'' +
+                ", orderDate=" + orderDate +
+                ", totalAmount=" + totalAmount +
+                '}';
+    }
 }

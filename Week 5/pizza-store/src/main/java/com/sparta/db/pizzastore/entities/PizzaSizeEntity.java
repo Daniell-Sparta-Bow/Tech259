@@ -42,4 +42,12 @@ public class PizzaSizeEntity {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "PizzaSizeEntity{" +
+                "id=" + id +
+                ", sizeName='" + sizeName + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
