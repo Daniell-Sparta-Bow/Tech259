@@ -38,6 +38,10 @@ public class PizzaStoreService {
         System.out.println(allOrders);
     }
 
+    public void getAllToppings(){
+        List<ToppingEntity> allToppings = toppingEntityRepository.findAll();
+    }
+
     @Transactional
     public void getAllToppingsByCustomerName(String customerName){
         Optional<OrderEntity> orderEntity = orderEntityRepository.findByCustomerName(customerName);
